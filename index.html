@@ -9,37 +9,43 @@
 </head>
 <body>
     <h1>TicTacToe</h1>
-    <p>Please enter the names and choices of each player </p>
-    <form action="script.js" method="GET" id="form">
-        <label for="name1">First Person's Name: </label>
-        <input type="text" id="name1" name="name1">
+    <p>Hello! Welcome to the two-person tictactoe game! Please enter the names and choices of each player. </p>
+    
+    <div id="style">
+        <form action="script.js" method="GET" id="form">
+            <label for="name1">First Person's Name: </label>
+            <input type="text" id="name1" name="name1">
 
-        <label for="choice1">First Person's Choice: </label>
-        <input type="text" id="choice1" name="choice1" required>
+            <label for="choice1">First Person's Choice: </label>
+            <input type="text" id="choice1" name="choice1" required>
 
-        <label for="name2">Second Person's Name: </label>
-        <input type="text" id="name2" name="name2">
+            <label for="name2">Second Person's Name: </label>
+            <input type="text" id="name2" name="name2">
 
-        <label for="choice2">Second Person's Choice: </label>
-        <input type="text" id="choice2" name="choice2" required>
-    </form>
+            <label for="choice2">Second Person's Choice: </label>
+            <input type="text" id="choice2" name="choice2" required>
 
-    <button type="submit" form="form" id="create" value=create>Submit</button>
+            <button type="submit" form="form" id="create" value=create>Submit</button>
+        </form>
 
-    <div id="container">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
+        <div id="grid">
+            <div id="container">
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
+            
+            <p id="endMssg"></p>
+            <button id="restart">Restart</button>
+        </div>
     </div>
 
-    <p id="endMssg"></p>
-    <button id="restart">Restart</button>
 </body>
 <script src="script.js"></script>
 </html>
