@@ -1,27 +1,28 @@
-let grid = document.querySelector("#container");
-const square = document.querySelectorAll(".square");
-const restart = document.querySelector("#restart");
-const endMssg = document.getElementById("endMssg");
-let gameOver = false;
-let counter = 0;
+const wrapped = (() => {
+    let grid = document.querySelector("#container");
+    const square = document.querySelectorAll(".square");
+    const restart = document.querySelector("#restart");
+    const endMssg = document.getElementById("endMssg");
+    let gameOver = false;
+    let counter = 0;
 
-const start = (() => {
-    let form = document.querySelector("form");
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+    function start() {
+        let form = document.querySelector("form");
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
 
-        for(let i = 0; i < 9; i++) {
-            square[i].textContent = "";
-            counter = 0;
-        }
-        endMssg.textContent = "";
+            for(let i = 0; i < 9; i++) {
+                square[i].textContent = "";
+                counter = 0;
+            }
+            endMssg.textContent = "";
 
-        gameOver = false;
-        game();
-    });    
-})();
+            gameOver = false;
+            game();
+        });  
+    }
 
-const game = (() => {
+    const game = (() => {
     const player = (name, choice) => {
         this.name = name;
         this.choice = choice;
@@ -69,30 +70,37 @@ const game = (() => {
         }
     }
 
-    restart.addEventListener("click", () => {
-        start();
-    });
-})
+        restart.addEventListener("click", () => {
+            start();
+        });
+    })
 
-const checkWin = ((array) => {
-    let winningCombinations = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
+    const checkWin = ((array) => {
+        let winningCombinations = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
 
-    for(let i = 0; i < 8; i++) {
-        if(array[winningCombinations[i][0]].textContent !== "" && array[winningCombinations[i][0]].textContent === array[winningCombinations[i][1]].textContent && array[winningCombinations[i][1]].textContent === array[winningCombinations[i][2]].textContent) {
-            gameOver = true;
-            listen = false;
-            return true;
+        for(let i = 0; i < 8; i++) {
+            if(array[winningCombinations[i][0]].textContent !== "" && array[winningCombinations[i][0]].textContent === array[winningCombinations[i][1]].textContent && array[winningCombinations[i][1]].textContent === array[winningCombinations[i][2]].textContent) {
+                gameOver = true;
+                listen = false;
+                return true;
+            }
         }
-    }
-    return false;
-}); 
+        return false;
+    }); 
+})();
+
+
+
+
+
+
 
